@@ -1,7 +1,11 @@
+import DisplayCards from "@/components/DisplayCards";
+
 const index = () => {
   return (
     <>
-      <div className="">hello</div>
+      <div className="">
+        <DisplayCards />
+      </div>
     </>
   );
 };
