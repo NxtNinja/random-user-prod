@@ -7,7 +7,7 @@ import { useAtom } from "jotai";
 import { UserNumberAtom } from "@/utils/atoms/UserNumberAtom";
 
 const DisplayCards = () => {
-  const [numberOfUsers, setNumberOfUsers] = useAtom<number>(UserNumberAtom);
+  const [numberOfUsers] = useAtom<number>(UserNumberAtom);
 
   const { data, isFetched, isSuccess, isLoading, isFetching } = useQuery({
     queryKey: ["users", numberOfUsers],
