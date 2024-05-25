@@ -9,8 +9,9 @@ const index = () => {
       <Head>
         <title>RandomUser App</title>
       </Head>
+
+      <Nav />
       <div className="container mx-auto">
-        <Nav />
         <DisplayCards />
       </div>
       <Toaster position="top-center" reverseOrder={false} />
