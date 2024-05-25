@@ -34,12 +34,7 @@ const Nav = () => {
 
   const usernumberdata = (data: validationScehmatype) => {
     console.log(data);
-<<<<<<< HEAD
     setNumberOfUsers(data.userNumber);
-=======
-
-    toast.error("Button Press Data Fetching incomplete");
->>>>>>> 14c3e6cfcccbd8713df47c2440f27acb16858b73
   };
 
   useEffect(() => {
