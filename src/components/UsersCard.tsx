@@ -10,7 +10,13 @@ const UsersCard = ({ info }: { info: Result }) => {
       <Card>
         <CardBody className="px-8 py-4">
           <div className="flex flex-col items-center justify-center gap-4 p-4">
-            <Image src={info?.picture?.large} radius="full" isBlurred={true} />
+            <Image
+              height={128}
+              width={128}
+              src={info?.picture?.large}
+              radius="full"
+              isBlurred={true}
+            />
             <div className="text-center text-2xl font-semibold">
               {info?.name?.title} {info?.name?.first} {info?.name?.last}
             </div>
