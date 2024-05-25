@@ -93,7 +93,7 @@ export const validationScehma = z.object({
   userNumber: z.coerce
     .number()
     .gte(3, { message: "Minimum 3" })
-    .lte(24, { message: "Maximum 24" }),
+    .lte(24, { message: "Maximum 24" }).multipleOf(3, "Number should be multiple of 3")
 });
 
 export type validationScehmatype = z.infer<typeof validationScehma>;

@@ -1,14 +1,16 @@
 import { fetchUsers } from "@/utils/fetchUsers";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import UsersCard from "./UsersCard";
 import SkeletonCard from "./SkeletonCard";
 import { Result } from "@/utils/types/UserType";
+import { useAtom } from "jotai";
+import { UserNumberAtom } from "@/utils/atoms/UserNumberAtom";
 
 const DisplayCards = () => {
-  const [numberOfUsers, setNumberOfUsers] = useState(3);
+  const [numberOfUsers, setNumberOfUsers] = useAtom<number>(UserNumberAtom);
+
   const { data, isFetched, isSuccess, isLoading, isFetching } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["users", numberOfUsers],
     queryFn: () => fetchUsers(numberOfUsers),
     refetchOnWindowFocus: false,
   });

@@ -12,9 +12,17 @@ import { useForm } from "react-hook-form";
 import { validationScehma, validationScehmatype } from "@/utils/types/UserType";
 import { zodResolver } from "@hookform/resolvers/zod";
 import toast from "react-hot-toast";
+import { useQueryClient } from "@tanstack/react-query";
+import { useAtom } from "jotai";
+import { UserNumberAtom } from "@/utils/atoms/UserNumberAtom";
+import { useEffect } from "react";
 
 const Nav = () => {
+  const [numberOfUsers, setNumberOfUsers] = useAtom<number>(UserNumberAtom);
+
   // Form Validation
+
+  const queryClient = useQueryClient();
 
   const {
     handleSubmit,
@@ -26,8 +34,13 @@ const Nav = () => {
 
   const usernumberdata = (data: validationScehmatype) => {
     console.log(data);
-    toast.error("Button Press Data Fetching incomplete");
+    setNumberOfUsers(data.userNumber);
   };
+
+  useEffect(() => {
+    queryClient.refetchQueries({ queryKey: ["users"] });
+    toast.success(`${numberOfUsers} users fetched`);
+  }, [numberOfUsers]);
 
   return (
     <>
