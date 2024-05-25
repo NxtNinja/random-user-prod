@@ -26,6 +26,7 @@ const Nav = () => {
 
   const usernumberdata = (data: validationScehmatype) => {
     console.log(data);
+
     toast.error("Button Press Data Fetching incomplete");
   };
 
